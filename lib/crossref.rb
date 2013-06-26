@@ -41,6 +41,12 @@ module Crossref
     end
     
     
+    def first_author
+      xpath_ns('contributors/person_name[@contributor_role="author" and @sequence="first"]').each do |a|
+        return hashify_nodes(a.children)
+      end
+    end
+
     def authors
       authors = []
       xpath_ns('contributors/person_name[@contributor_role="author"]').each do |a| 
@@ -72,8 +78,8 @@ module Crossref
       xpath_first('doi_data/resource')
     end
 
-    def xpath_ns(q, ns = 'http://www.crossref.org/xschema/1.0')
-      self.xml.xpath("//#{q.split('/').map {|e| "xmlns:#{e}"}.join('/')}", 'xmlns' => ns)
+    def xpath_ns(q)
+      self.xml.xpath("//#{q}")
     end
     
     def xpath_first(q)
