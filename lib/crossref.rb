@@ -53,6 +53,8 @@ module Crossref
       xpath_ns('contributors/person_name[@contributor_role="author" and @sequence="first"]').each do |a|
         return hashify_nodes(a.children)
       end
+
+      {}
     end
 
     def authors
