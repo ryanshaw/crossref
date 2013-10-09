@@ -26,6 +26,10 @@ module Crossref
       Crossref::Metadata.new(:doi => doi, :pid => @pid, :url => @base_url)
     end
 
+
+    def valid?
+      xml && !xpath_ns('error')
+    end
     
     def result?
       if self.xml.nil? || xpath_ns('error').size == 1
@@ -37,17 +41,23 @@ module Crossref
 
     
     def title
+      return nil unless valid?
+      
       xpath_first('titles/title')
     end
     
     
     def first_author
+      return {} unless valid?
+      
       xpath_ns('contributors/person_name[@contributor_role="author" and @sequence="first"]').each do |a|
         return hashify_nodes(a.children)
       end
     end
 
     def authors
+      return [] unless valid?
+
       authors = []
       xpath_ns('contributors/person_name[@contributor_role="author"]').each do |a| 
        authors << hashify_nodes(a.children) 
@@ -57,6 +67,8 @@ module Crossref
     
     
     def published
+      return {} unless valid?
+
       pub = Hash.new
       pub[:year] = xpath_first('publication_date/year')
       pub[:month] = xpath_first('publication_date/month')
@@ -65,6 +77,8 @@ module Crossref
 
     
     def journal
+      return {} unless valid?
+
       journal = hashify_nodes(xpath_ns('journal_metadata').first.children)
       journal[:volume] = xpath_first('journal_issue/journal_volume/volume') 
       journal[:issue] = xpath_first('journal_issue/issue')
