@@ -28,7 +28,7 @@ module Crossref
 
 
     def valid?
-      xml && !xpath_ns('error').empty?
+      xml && xpath_ns('error').empty?
     end
     
     def result?
