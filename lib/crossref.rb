@@ -3,30 +3,39 @@ require 'nokogiri'
 require 'open-uri'
 
 module Crossref
-  VERSION = '0.0.4'
+  BASE_URL = 'http://crossref.org/openurl/?noredirect=true&format=unixref'
+  VERSION  = '0.0.4'
+
+  class << self
+    def valid_doi?(doi)
+      !!(doi =~ /^10[.]\d+\//) # Very loose validation, just checks the core basics.
+    end
+
+    def url(doi, pid=nil)
+      url = BASE_URL.dup
+      url << "&id=doi:#{sanitize_param(doi)}"
+      url << "&pid=#{sanitize_param(pid)}" if pid
+      url
+    end
+
+    def sanitize_param(param)
+      CGI.escape(param.gsub(/\n+|\s+/,''))
+    end
+  end
 
   class Metadata
     attr_accessor :doi, :url, :xml
-    
+
     def initialize(opts = {})
-      @base_url =  opts[:base_url] || 'http://crossref.org/openurl/?noredirect=true&format=unixref'      
-      @doi = opts[:doi]
       @pid = opts[:pid]
-      @base_url += '&pid=' + @pid if @pid
+      @doi = opts[:doi]
+      @doi = @doi.strip if @doi
+      @url = Crossref.url(@doi, @pid)
       
-      if @doi
-        @doi = sanitize_doi(@doi)
-        @url = @base_url + "&id=doi:" + @doi
-        @xml = get_xml(@url)
-      end
+ 
+      @xml = get_xml(@url) if @doi && @pid && Crossref.valid_doi?(@doi)
     end
-
     
-    def doi(doi)
-      Crossref::Metadata.new(:doi => doi, :pid => @pid, :url => @base_url)
-    end
-
-
     def valid?
       xml && xpath_ns('error').empty?
     end
@@ -108,8 +117,6 @@ module Crossref
     
     #------------------------------------------------------
     private
-
-
     def get_xml(url)
       Nokogiri::XML(open(url))
     end
@@ -120,12 +127,7 @@ module Crossref
         h[node.name.to_sym] = node.content unless node.content.match(/\n/)
       end
       h
-    end
-
-    def sanitize_doi(doi)
-      doi.gsub(/\n+|\s+/,'')
-    end
-    
+    end    
   end
   
 end

@@ -1,0 +1,127 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://crossref.org/openurl/?format=unixref&id=doi:10.1016/j.jaridenv.2006.12.024&noredirect=true&pid=fake-pid
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Content-Language:
+      - en-US
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Tue, 10 Dec 2013 20:26:40 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<doi_records>\r\n  <doi_record
+        owner=\"10.1016\" timestamp=\"2012-02-07 09:58:56\">\r\n    <crossref>\r\n
+        \     <journal>\r\n        <journal_metadata language=\"en\">\r\n          <full_title>Journal
+        of Arid Environments</full_title>\r\n          <abbrev_title>Journal of Arid
+        Environments</abbrev_title>\r\n          <issn media_type=\"print\">01401963</issn>\r\n
+        \       </journal_metadata>\r\n        <journal_issue>\r\n          <publication_date
+        media_type=\"print\">\r\n            <month>7</month>\r\n            <year>2007</year>\r\n
+        \         </publication_date>\r\n          <journal_volume>\r\n            <volume>70</volume>\r\n
+        \         </journal_volume>\r\n          <issue>2</issue>\r\n        </journal_issue>\r\n
+        \       <journal_article publication_type=\"full_text\">\r\n          <titles>\r\n
+        \           <title>Rainfall trends in arid and semi-arid regions of Iran</title>\r\n
+        \         </titles>\r\n          <contributors>\r\n            <person_name
+        contributor_role=\"author\" sequence=\"first\">\r\n              <given_name>Reza</given_name>\r\n
+        \             <surname>Modarres</surname>\r\n            </person_name>\r\n
+        \           <person_name contributor_role=\"author\" sequence=\"additional\">\r\n
+        \             <given_name>Vicente</given_name>\r\n              <surname>de
+        Paulo Rodrigues da Silva</surname>\r\n            </person_name>\r\n          </contributors>\r\n
+        \         <publication_date media_type=\"print\">\r\n            <month>7</month>\r\n
+        \           <year>2007</year>\r\n          </publication_date>\r\n          <pages>\r\n
+        \           <first_page>344</first_page>\r\n            <last_page>355</last_page>\r\n
+        \         </pages>\r\n          <publisher_item>\r\n            <item_number
+        item_number_type=\"sequence-number\">S0140196307000225</item_number>\r\n            <identifier
+        id_type=\"pii\">S0140196307000225</identifier>\r\n          </publisher_item>\r\n
+        \         <doi_data>\r\n            <doi>10.1016/j.jaridenv.2006.12.024</doi>\r\n
+        \           <resource>http://linkinghub.elsevier.com/retrieve/pii/S0140196307000225</resource>\r\n
+        \         </doi_data>\r\n        </journal_article>\r\n      </journal>\r\n
+        \   </crossref>\r\n  </doi_record>\r\n</doi_records>"
+    http_version: 
+  recorded_at: Tue, 10 Dec 2013 20:26:39 GMT
+- request:
+    method: get
+    uri: http://crossref.org/openurl/?format=unixref&id=doi:10.1002/(SICI)1096-9837(199908)24:8%3C693::AID-ESP992%3E3.0.CO%3B2-7&noredirect=true&pid=fake-pid
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Content-Language:
+      - en-US
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Tue, 10 Dec 2013 20:26:40 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<doi_records>\r\n  <doi_record
+        owner=\"10.1002\" timestamp=\"2011-08-14 17:19:44\">\r\n    <crossref>\r\n
+        \     <journal>\r\n        <journal_metadata language=\"en\">\r\n          <full_title>Earth
+        Surface Processes and Landforms</full_title>\r\n          <abbrev_title>Earth
+        Surf. Process. Landforms</abbrev_title>\r\n          <issn media_type=\"print\">0197-9337</issn>\r\n
+        \         <issn media_type=\"electronic\">1096-9837</issn>\r\n          <doi_data>\r\n
+        \           <doi>10.1002/(ISSN)1096-9837</doi>\r\n            <resource>http://doi.wiley.com/10.1002/%28ISSN%291096-9837</resource>\r\n
+        \         </doi_data>\r\n        </journal_metadata>\r\n        <journal_issue>\r\n
+        \         <publication_date media_type=\"print\">\r\n            <month>08</month>\r\n
+        \           <year>1999</year>\r\n          </publication_date>\r\n          <journal_volume>\r\n
+        \           <volume>24</volume>\r\n          </journal_volume>\r\n          <issue>8</issue>\r\n
+        \         <doi_data>\r\n            <doi>10.1002/(SICI)1096-9837(199908)24:8&lt;&gt;1.0.CO;2-T</doi>\r\n
+        \           <resource>http://doi.wiley.com/10.1002/(SICI)1096-9837(199908)24:8&lt;&gt;1.0.CO;2-T</resource>\r\n
+        \         </doi_data>\r\n        </journal_issue>\r\n        <journal_article
+        publication_type=\"full_text\">\r\n          <titles>\r\n            <title>Assessment
+        of soil losses by ephemeral gully erosion using high-altitude (stereo) aerial
+        photographs</title>\r\n          </titles>\r\n          <contributors>\r\n
+        \           <person_name contributor_role=\"author\" sequence=\"first\">\r\n
+        \             <given_name>J.</given_name>\r\n              <surname>Nachtergaele</surname>\r\n
+        \           </person_name>\r\n            <person_name contributor_role=\"author\"
+        sequence=\"additional\">\r\n              <given_name>J.</given_name>\r\n
+        \             <surname>Poesen,</surname>\r\n            </person_name>\r\n
+        \         </contributors>\r\n          <publication_date media_type=\"print\">\r\n
+        \           <month>08</month>\r\n            <year>1999</year>\r\n          </publication_date>\r\n
+        \         <pages>\r\n            <first_page>693</first_page>\r\n            <last_page>706</last_page>\r\n
+        \         </pages>\r\n          <doi_data>\r\n            <doi>10.1002/(SICI)1096-9837(199908)24:8&lt;693::AID-ESP992&gt;3.0.CO;2-7</doi>\r\n
+        \           <resource>http://doi.wiley.com/10.1002/%28SICI%291096-9837%28199908%2924%3A8%3C693%3A%3AAID-ESP992%3E3.0.CO%3B2-7</resource>\r\n
+        \         </doi_data>\r\n        </journal_article>\r\n      </journal>\r\n
+        \   </crossref>\r\n  </doi_record>\r\n</doi_records>"
+    http_version: 
+  recorded_at: Tue, 10 Dec 2013 20:26:39 GMT
+recorded_with: VCR 2.8.0
