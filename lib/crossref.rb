@@ -3,7 +3,7 @@ require 'nokogiri'
 require 'open-uri'
 
 module Crossref
-  BASE_URL = 'http://crossref.org/openurl/?noredirect=true&format=unixref'
+  BASE_URL = 'http://www.crossref.org/openurl/?noredirect=true&format=unixref'
   VERSION  = '0.0.4'
 
   class << self
